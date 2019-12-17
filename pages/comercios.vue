@@ -1,24 +1,24 @@
 <template>
   <div>
     <section class="pt-56 pb-32 cover-container relative">
-      <div class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
-      <div class="container mx-auto z-20 relative">
-        <div class="flex">
-          <div class="w-1/2">
+      <div class=" position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
+      <div class="container mx-auto z-20 relative px-6">
+        <div class="flex flex-col md:flex-row">
+          <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
             <div class="max-w-md">
-              <h1 class="text-5xl mb-8 leading-tight">
+              <h1 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight">
                 Comienza hoy
                 <br />a trabajar con
                 <br />
                 <span class="font-semibold">Redy.</span>
               </h1>
               <p
-                class="text-xl font-medium"
+                class="text-md md:text-xl font-medium"
               >Redy te permite ampliar las ventas de tu restaurante para que puedas llegar a clientes que viven en otras zonas de la ciudad.</p>
             </div>
           </div>
-          <div class="w-1/2">
-            <div class="bg-white shadow-lg rounded-lg py-8 px-3 max-w-md -mt-12">
+          <div class="w-full md:w-1/2 ">
+            <div class="bg-white shadow-lg rounded-lg py-8 px-3 max-w-md md:-mt-12">
               <p class="font-medium text-xl text-center mb-8 mt-6 px-6">
                 ¡Estás a un paso de ser nuestro
                 nuevo aliado!
@@ -121,12 +121,12 @@
       </div>
     </section>
     <section class="py-12 bg-redy-gold relative z-20">
-      <div class="container mx-auto">
-        <div class="flex">
-          <div class="w-1/2">
-            <img src="/img/redy-app-1.png" class="max-w-lg w-full -mt-64" alt />
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row">
+          <div class="w-full md:w-1/2">
+            <img src="/img/redy-app-1.png" class="max-w-lg w-full md:-mt-64" alt />
           </div>
-          <div class="w-1/2">
+          <div class="w-full md:w-1/2">
             <p class="text-3xl mb-8">
               Aumenta las ventas
               <br />hasta un
@@ -175,5 +175,10 @@ export default {
   width: 100%;
   left: -65%;
   transform: scale(1.5);
+  @media screen and(max-width: 768px) {
+    left: 0%;
+    widows: 600px;
+    height: 600px !important;
+  }
 }
 </style>

@@ -46,6 +46,10 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/tailwindcss',
     'nuxt-webfontloader',
+    ['nuxt-validate', {
+      lang: 'es',
+      // regular vee-validate options
+    }],
   ],
   /*
   ** Axios module configuration

@@ -6,7 +6,7 @@
         <div class="flex">
           <div class="w-1/2">
             <div class="max-w-md">
-              <h1 class="text-5xl mb-6 leading-tight">
+              <h1 class="text-5xl mb-8 leading-tight">
                 Comienza hoy
                 <br />a trabajar con
                 <br />
@@ -23,17 +23,27 @@
                 ¡Estás a un paso de ser nuestro
                 nuevo aliado!
               </p>
-              <form action class>
+              <form @submit.prevent="submitForm" class>
                 <div class="px-2">
                   <input
+                    v-model="form.restaurant_name"
+                    name="restaurant"
+                    v-validate="'required'"
+                    data-vv-as="nombre"
                     class="py-3 px-4 border-2 border-gray-300 w-full rounded-lg mb-4"
+                    :class="{ 'border-red-400' :errors.first('restaurant') }"
                     type="text"
                     placeholder="Nombre restaurante"
                   />
                 </div>
                 <div class="px-2 mb-4">
                   <input
+                    v-model="form.address"
+                    name="address"
+                    v-validate="'required'"
+                    data-vv-as="dirección"
                     class="py-3 px-4 border-2 border-gray-300 w-full rounded-lg"
+                    :class="{ 'border-red-400' :errors.first('address') }"
                     type="text"
                     placeholder="Dirección y ciudad"
                   />
@@ -41,24 +51,41 @@
                 <div class="flex mb-4">
                   <div class="w-1/2 px-2">
                     <input
+                      v-model="form.name"
+                      name="name"
+                      v-validate="'required'"
+                      data-vv-as="nombre"
                       class="py-3 px-4 border-2 border-gray-300 w-full rounded-lg"
+                      :class="{ 'border-red-400' :errors.first('name') }"
                       type="text"
                       placeholder="Nombre"
                     />
                   </div>
                   <div class="w-1/2 px-2">
                     <input
+                      v-model="form.last_name"
+                      name="last_name"
+                      v-validate="'required'"
+                      data-vv-as="nombre"
                       class="py-3 px-4 border-2 border-gray-300 w-full rounded-lg"
+                      :class="{ 'border-red-400' :errors.first('last_name') }"
                       type="text"
                       placeholder="Apellido"
                     />
                   </div>
                 </div>
                 <div class="px-2 mb-4">
-                  <div class="flex items-center px-4 border-2 border-gray-300 w-full rounded-lg">
+                  <div
+                    class="flex items-center px-4 border-2 border-gray-300 w-full rounded-lg"
+                    :class="{ 'border-red-400' :errors.first('phone') }"
+                  >
                     <img src="/img/icons/mx-icon.svg" class="w-8" alt />
                     <span class="text-gray-700 font-semibold mx-2">+52</span>
                     <input
+                      v-model="form.phone"
+                      name="phone"
+                      v-validate="'required'"
+                      data-vv-as="nombre"
                       class="w-full h-full py-3"
                       type="text"
                       placeholder="Ingresa tu número telefonico"
@@ -67,7 +94,12 @@
                 </div>
                 <div class="px-2 mb-4">
                   <input
+                    v-model="form.email"
+                    name="email"
+                    v-validate="'required|email'"
+                    data-vv-as="nombre"
                     class="py-3 px-4 border-2 border-gray-300 w-full rounded-lg"
+                    :class="{ 'border-red-400' :errors.first('email') }"
                     type="text"
                     placeholder="Correo"
                   />
@@ -79,6 +111,7 @@
                   </p>
                   <button
                     class="p-3 bg-redy-gold font-semibold text-xl rounded-lg w-full hover:shadow-lg"
+                    type="submit"
                   >Enviar</button>
                 </div>
               </form>
@@ -111,6 +144,24 @@
 <script>
 export default {
   layout: 'register',
+  data: () => ({
+    form: {
+      restaurant_name: null,
+      address: null,
+      name: null,
+      last_name: null,
+      phone: null,
+      email: null
+    }
+  }),
+  methods: {
+    async submitForm() {
+      const isValid = this.$validator.validateAll()
+
+      try {
+      } catch (error) {}
+    }
+  }
 }
 </script>
 <style lang="scss">

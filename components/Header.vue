@@ -12,7 +12,7 @@
       </nuxt-link>
     </div>
 
-    <div class="flex flex-col lg:flex-row items-center mt-4 md:mt-0">
+    <div v-if="$route.name !== 'repartidor'" class="flex flex-col lg:flex-row items-center mt-4 md:mt-0">
       <p class="mr-4 font-semibold text-black text-sm md:text-lg mb-4 lg:mb-0">Muy pronto en</p>
       <div class="flex flex-col md:flex-row items-center  lg:mb-0 ">
         <nuxt-link
@@ -33,6 +33,6 @@
 </template>
 <script>
 export default {
-  name: ''
+  name: 'Navbar',
 }
 </script>

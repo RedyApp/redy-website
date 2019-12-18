@@ -20,10 +20,14 @@ body {
 }
 
 input,
+select,
 button {
 
   &:active,
   &:focus {
     outline: none;
   }
+}
+.rounded-xl{
+  border-radius: 14px;
 }

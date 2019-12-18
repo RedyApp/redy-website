@@ -1,20 +1,46 @@
 <template>
   <div class="flex md:items-center justify-between py-6 px-6 md:px-12 absolute w-full z-50">
     <div class="flex flex-col md:flex-row md:items-center">
-      <nuxt-link to class="md:mr-12 mb-4 md:mb-0">
+      <nuxt-link
+        to
+        class="md:mr-32 mb-4 md:mb-0"
+        data-sal="fade"
+        data-sal-delay="100"
+        data-sal-duration="2000"
+        data-sal-easing="ease-out-bounce"
+      >
+
         <img src="/img/logo.svg" class="w-20 h-20 md:w-24 md:h-24 max-w-xs" alt />
+        <p v-if="$route.name !== 'repartidor'" class="-mt-5 font-regular text-md">Business</p>
       </nuxt-link>
-      <nuxt-link to class="font-semibold md:mr-8 flex items-center">
+      <nuxt-link
+        to
+        class="font-semibold md:mr-10 flex items-center"
+        data-sal="fade"
+        data-sal-delay="200"
+        data-sal-duration="2000"
+        data-sal-easing="ease-out-bounce"
+      >
         <i class="icon-arrow text-redy-gold mr-2"></i>Soporte Redy
       </nuxt-link>
-      <nuxt-link to class="font-semibold flex items-center">
+      <nuxt-link
+        to
+        class="font-semibold flex items-center"
+        data-sal="fade"
+        data-sal-delay="300"
+        data-sal-duration="300"
+        data-sal-easing="ease-out-bounce"
+      >
         <i class="icon-arrow text-redy-gold mr-2"></i>Términos
       </nuxt-link>
     </div>
 
-    <div v-if="$route.name !== 'repartidor'" class="flex flex-col lg:flex-row items-center mt-4 md:mt-0">
+    <div
+      v-if="$route.name !== 'repartidor'"
+      class="flex flex-col lg:flex-row items-center mt-4 md:mt-0"
+    >
       <p class="mr-4 font-semibold text-black text-sm md:text-lg mb-4 lg:mb-0">Muy pronto en</p>
-      <div class="flex flex-col md:flex-row items-center  lg:mb-0 ">
+      <div class="flex flex-col md:flex-row items-center lg:mb-0">
         <nuxt-link
           to="/"
           class="w-10 md:w-12 h-10 md:h-12 rounded-full flex items-center justify-center mx-2 bg-redy-gold mb-2 md:mb-0"
@@ -32,7 +58,11 @@
   </div>
 </template>
 <script>
+import sal from 'sal.js'
 export default {
   name: 'Navbar',
+  mounted() {
+    sal()
+  }
 }
 </script>

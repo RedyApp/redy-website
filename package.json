@@ -14,7 +14,8 @@
     "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
-    "nuxt-validate": "^1.0.1"
+    "nuxt-validate": "^1.0.1",
+    "sal.js": "^0.6.6"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.2.0",

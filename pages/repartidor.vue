@@ -2,14 +2,20 @@
   <div class="main">
     <section class="pt-56 pb-12 md_pb-0 relative">
       <div class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
-      <div class="img-container object-cover w-1/2 ml-auto absolute h-full  bottom-0 right-0">
-        <img src="/img/redy-back-dealer.webp" alt class="object-cover ml-auto"/>
+      <div class="img-container object-cover w-1/2 ml-auto absolute h-full bottom-0 right-0">
+        <img src="/img/redy-back-dealer.webp" alt class="object-cover ml-auto" />
       </div>
       <div class="container mx-auto z-50 relative px-6">
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
             <div class="max-w-md">
-              <h1 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight">
+              <h1
+                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight"
+                data-sal="slide-up"
+                data-sal-delay="200"
+                data-sal-duration="1000"
+                data-sal-easing="ease-out-bounce"
+              >
                 Obtén puntos
                 <br />como repartidor
                 <br />en
@@ -18,7 +24,13 @@
             </div>
           </div>
           <div class="w-full md:w-1/2">
-            <div class="bg-white shadow-lg rounded-lg py-8 px-3 max-w-md md:-mt-16">
+            <div
+              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-16"
+              data-sal="fade"
+              data-sal-delay="200"
+              data-sal-duration="1000"
+              data-sal-easing="ease-out-bounce"
+            >
               <p class="font-medium text-xl text-center mb-8 mt-6 px-6">
                 ¡Estás a un paso de ser nuestro
                 nuevo aliado!
@@ -69,16 +81,20 @@
                   </div>
                 </div>
                 <div class="px-2 mb-4">
-                  <input
+                  <select
                     v-model="form.address"
                     name="address"
                     v-validate="'required'"
                     data-vv-as="dirección"
-                    class="py-3 px-4 border-2 border-gray-300 w-full rounded-lg"
+                    class="custom-select py-3 px-4 border-2 border-gray-300 w-full rounded-lg appearance-none bg-white"
                     :class="{ 'border-red-400' :errors.first('address') }"
                     type="text"
                     placeholder="Dirección y ciudad"
-                  />
+                  >
+                    <option value>Ciudad</option>
+                    <option value="Tampico">Tampico</option>
+                    <option value="Ciudad Madero">Ciudad Madero</option>
+                  </select>
                 </div>
 
                 <div class="px-2 mb-4">
@@ -128,26 +144,52 @@
       <div class="container mx-auto px-6">
         <div class="flex flex-wrap flex-col md:flex-row items-center">
           <div class="w-full md:w-1/2">
-            <div class="text-right w-fullm  md:-mb-40">
-              <img class="max-w-xs mx-auto md:max-w-md w-full" src="/img/redy-dealer-item-1.png" alt />
+            <div class="text-right w-fullm md:-mb-40">
+              <img
+                class="max-w-xs mx-auto md:max-w-md w-full"
+                src="/img/redy-dealer-item-1.png"
+                alt
+                data-sal="fade"
+                data-sal-delay="100"
+                data-sal-duration="1000"
+                data-sal-easing="ease-out-bounce"
+              />
             </div>
           </div>
           <div class="w-full md:w-1/2">
-            <div class="flex items-center mb-10 md:mb-20">
+            <div
+              class="flex items-center mb-10 md:mb-20"
+              data-sal="slide-up"
+              data-sal-delay="50"
+              data-sal-duration="1000"
+              data-sal-easing="ease-out-bounce"
+            >
               <img src="/img/icons/redy-icon-1.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
                 Gana propina extra
                 <br />tus entregas.
               </p>
             </div>
-            <div class="flex items-center mb-10 md:mb-20 md:ml-20">
+            <div
+              class="flex items-center mb-10 md:mb-20 md:ml-20"
+              data-sal="slide-up"
+              data-sal-delay="60"
+              data-sal-duration="1000"
+              data-sal-easing="ease-out-bounce"
+            >
               <img src="/img/icons/redy-icon-2.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
                 Gana propina extra
                 <br />tus entregas.
               </p>
             </div>
-            <div class="flex items-center md:mb-12 md:ml-8">
+            <div
+              class="flex items-center md:mb-12 md:ml-8"
+              data-sal="slide-up"
+              data-sal-delay="70"
+              data-sal-duration="1000"
+              data-sal-easing="ease-out-bounce"
+            >
               <img src="/img/icons/redy-icon-3.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
                 Gana propina extra
@@ -161,18 +203,22 @@
   </div>
 </template>
 <script>
+import sal from 'sal.js'
 export default {
   layout: 'register',
   data: () => ({
     form: {
       name: null,
       last_name: null,
-      address: null,
+      address: '',
       phone: null,
       email: null,
       password: null
     }
   }),
+  mounted() {
+    sal()
+  },
   methods: {
     async submitForm() {
       const isValid = this.$validator.validateAll()
@@ -202,6 +248,10 @@ export default {
   }
 }
 
-.img-container {
+.custom-select{
+  background-image: url('/img/icons/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: 98%;
+  background-size: 20px;
 }
 </style>

@@ -1,12 +1,18 @@
 <template>
   <div>
     <section class="pt-56 pb-32 cover-container relative">
-      <div class=" position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
+      <div class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
       <div class="container mx-auto z-20 relative px-6">
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
             <div class="max-w-md">
-              <h1 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight">
+              <h1
+                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight"
+                data-sal="slide-up"
+                data-sal-delay="200"
+                data-sal-duration="1000"
+                data-sal-easing="ease-out-bounce"
+              >
                 Comienza hoy
                 <br />a trabajar con
                 <br />
@@ -14,11 +20,21 @@
               </h1>
               <p
                 class="text-md md:text-xl font-medium"
+                data-sal="fade"
+                data-sal-delay="250"
+                data-sal-duration="800"
+                data-sal-easing="ease-out-bounce"
               >Redy te permite ampliar las ventas de tu restaurante para que puedas llegar a clientes que viven en otras zonas de la ciudad.</p>
             </div>
           </div>
-          <div class="w-full md:w-1/2 ">
-            <div class="bg-white shadow-lg rounded-lg py-8 px-3 max-w-md md:-mt-12">
+          <div class="w-full md:w-1/2">
+            <div
+              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-12"
+              data-sal="fade"
+              data-sal-delay="200"
+              data-sal-duration="1000"
+              data-sal-easing="ease-out-bounce"
+            >
               <p class="font-medium text-xl text-center mb-8 mt-6 px-6">
                 ¡Estás a un paso de ser nuestro
                 nuevo aliado!
@@ -124,16 +140,40 @@
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2">
-            <img src="/img/redy-app-1.png" class="max-w-lg w-full md:-mt-64" alt />
+            <img
+              src="/img/redy-app-1.png"
+              class="max-w-lg w-full md:-mt-64"
+              alt
+              data-sal="slide-up"
+              data-sal-delay="100"
+              data-sal-duration="1000"
+              data-sal-easing="ease-in"
+            />
           </div>
           <div class="w-full md:w-1/2">
-            <p class="text-3xl mb-8">
-              Aumenta las ventas
-              <br />hasta un
-              <b>40%</b>.
+            <p
+              class="text-3xl mb-8 leading-tight"
+              data-sal="fade"
+              data-sal-delay="200"
+              data-sal-duration="2000"
+              data-sal-easing="ease-out-bounce"
+            >
+              Comencemos una
+              <br />nueva experiencia y
+              <br />conoce más a tus
+              <br />
+              <b>consumidores</b>.
             </p>
             <div class="text-right w-full">
-              <img class="max-w-xs ml-12" src="/img/redy-item-1.webp" alt />
+              <img
+                class="max-w-xs ml-12"
+                src="/img/redy-item-1.webp"
+                alt
+                data-sal="fade"
+                data-sal-delay="200"
+                data-sal-duration="1200"
+                data-sal-easing="ease-in"
+              />
             </div>
           </div>
         </div>
@@ -142,6 +182,7 @@
   </div>
 </template>
 <script>
+import sal from 'sal.js'
 export default {
   layout: 'register',
   data: () => ({
@@ -154,6 +195,9 @@ export default {
       email: null
     }
   }),
+  mounted() {
+    sal()
+  },
   methods: {
     async submitForm() {
       const isValid = this.$validator.validateAll()

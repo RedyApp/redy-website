@@ -217,7 +217,10 @@ export default {
     }
   }),
   mounted() {
-    sal()
+    sal({
+      threshold: 0.5,
+      once: true
+    })
   },
   methods: {
     async submitForm() {

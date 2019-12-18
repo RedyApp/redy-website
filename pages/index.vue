@@ -1,8 +1,8 @@
 <template>
   <section class="bg-redy-gray mx-auto flex flex-col min-h-screen md:h-screen">
-    <div class="h-full flex flex-col items-center justify-center relative pt-20 md:pt-0">
-      <h1 class="text-4xl font-normal z-50 -mt-12 lg:-mt-32 absolute">Próximamente</h1>
-      <video src="/img/loader.mp4" loop autoplay></video>
+    <div class="h-full flex flex-col items-center justify-center relative pt-20 md:pt-0 mt-20">
+      <h1 class="text-4xl font-normal z-50 -mt-12 lg:-mt-24 absolute">Próximamente</h1>
+      <video src="/img/loader.mp4" loop autoplay class="video-loading"></video>
     </div>
     <div class="flex flex-col lg:flex-row justify-between items-center py-8 px-4 md:px-24">
       <div class="flex flex-col lg:flex-row items-center">
@@ -46,4 +46,9 @@ export default {
   name: 'Home'
 }
 </script>
+<style lang="scss">
+  .video-loading{
+    height: 400px;
+  }
+</style>
 

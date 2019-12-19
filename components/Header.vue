@@ -4,10 +4,6 @@
       <nuxt-link
         to
         class="md:mr-32 mb-4 md:mb-0"
-        data-sal="fade"
-        data-sal-delay="100"
-        data-sal-duration="2000"
-        data-sal-easing="ease-out-bounce"
       >
 
         <img src="/img/logo.svg" class="w-20 h-20 md:w-24 md:h-24 max-w-xs" alt />
@@ -16,20 +12,12 @@
       <nuxt-link
         to
         class="font-semibold md:mr-10 flex items-center"
-        data-sal="fade"
-        data-sal-delay="200"
-        data-sal-duration="2000"
-        data-sal-easing="ease-out-bounce"
       >
         <i class="icon-arrow text-redy-gold mr-2"></i>Soporte Redy
       </nuxt-link>
       <nuxt-link
         to
         class="font-semibold flex items-center"
-        data-sal="fade"
-        data-sal-delay="300"
-        data-sal-duration="300"
-        data-sal-easing="ease-out-bounce"
       >
         <i class="icon-arrow text-redy-gold mr-2"></i>Términos
       </nuxt-link>
@@ -58,11 +46,7 @@
   </div>
 </template>
 <script>
-import sal from 'sal.js'
 export default {
   name: 'Navbar',
-  mounted() {
-    sal()
-  }
 }
 </script>

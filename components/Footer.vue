@@ -13,46 +13,17 @@
             <nuxt-link
               to
               class="text-lg hover:text-redy-gold md:mr-8 mb-2 md:mb-0"
-              data-sal="fade"
-              data-sal-delay="100"
-              data-sal-duration="200"
-              data-sal-easing="ease-out-bounce"
             >Términos y condiciones</nuxt-link>
-            <nuxt-link
-              to
-              class="text-lg hover:text-redy-gold mb-4 md:mb-0"
-              data-sal="fade"
-              data-sal-delay="200"
-              data-sal-duration="200"
-              data-sal-easing="ease-out-bounce"
-            >Políticas y Privacidad</nuxt-link>
+            <nuxt-link to class="text-lg hover:text-redy-gold mb-4 md:mb-0">Políticas y Privacidad</nuxt-link>
           </div>
           <div class="flex items-center mb-6 md:mb-0">
-            <nuxt-link
-              to="/"
-              class="mx-3 md:ml-6"
-              data-sal="fade"
-              data-sal-delay="300"
-              data-sal-duration="200"
-              data-sal-easing="ease-out-bounce"
-            >
+            <nuxt-link to="/" class="mx-3 md:ml-6">
               <i class="icon-instagram text-black hover:text-redy-gold text-2xl"></i>
             </nuxt-link>
-            <nuxt-link
-              to="/"
-              class="mx-3 md:ml-6"
-              data-sal="fade"
-              data-sal-delay="400"
-              data-sal-duration="200"
-              data-sal-easing="ease-out-bounce"
-            >
+            <nuxt-link to="/" class="mx-3 md:ml-6">
               <i class="icon-twitter text-black hover:text-redy-gold text-2xl"></i>
             </nuxt-link>
-            <nuxt-link to="/" class="mx-3 md:ml-6"
-             data-sal="fade"
-              data-sal-delay="500"
-              data-sal-duration="200"
-              data-sal-easing="ease-out-bounce">
+            <nuxt-link to="/" class="mx-3 md:ml-6">
               <i class="icon-facebook text-black hover:text-redy-gold text-2xl"></i>
             </nuxt-link>
           </div>

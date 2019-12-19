@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p
-          class="w-full md:max-w-xs text-gray-500 order-last md:order-none text-center md:text-left"
+          class="w-full md:max-w-xs text-gray-500 order-last md:order-none text-center md:text-left font-gordita font-base"
         >
           © Copyright 2019 Redy Technologies Inc.
           Todos los derechos reservados.

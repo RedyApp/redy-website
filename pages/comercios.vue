@@ -6,37 +6,23 @@
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
             <div class="max-w-md">
-              <h1
-                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight"
-                data-sal="slide-up"
-                data-sal-delay="200"
-                data-sal-duration="1000"
-                data-sal-easing="ease-out-bounce"
-              >
-                Comienza hoy
-                <br />a trabajar con
+              <h1 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title">
+                Genera
+
+
+                <br />ingresos extra
                 <br />
-                <span class="font-semibold">Redy.</span>
+                con <span class="font-semibold">Redy.</span>
               </h1>
               <p
-                class="text-md md:text-xl font-medium"
-                data-sal="fade"
-                data-sal-delay="250"
-                data-sal-duration="800"
-                data-sal-easing="ease-out-bounce"
+                class="text-md md:text-xl font-medium description font-gordita"
               >Redy te permite ampliar las ventas de tu restaurante para que puedas llegar a clientes que viven en otras zonas de la ciudad.</p>
             </div>
           </div>
           <div class="w-full md:w-1/2">
-            <div
-              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-12"
-              data-sal="fade"
-              data-sal-delay="200"
-              data-sal-duration="1000"
-              data-sal-easing="ease-out-bounce"
-            >
-              <p class="font-medium text-xl text-center mb-8 mt-6 px-6">
-                ¡Estás a un paso de ser nuestro
+            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-12 description">
+              <p class="font-medium text-xl text-center mb-8 mt-6 px-6 font-gordita">
+                ¡Estás a un paso de ser nuestro<br/>
                 nuevo aliado!
               </p>
               <form @submit.prevent="submitForm" class>
@@ -144,19 +130,13 @@
               src="/img/redy-app-1.png"
               class="max-w-lg w-full md:-mt-64"
               alt
-              data-sal="slide-up"
-              data-sal-delay="100"
-              data-sal-duration="1000"
-              data-sal-easing="ease-in"
+
             />
           </div>
           <div class="w-full md:w-1/2">
             <p
               class="text-3xl mb-8 leading-tight"
-              data-sal="fade"
-              data-sal-delay="200"
-              data-sal-duration="2000"
-              data-sal-easing="ease-out-bounce"
+
             >
               Comencemos una
               <br />nueva experiencia y
@@ -169,10 +149,6 @@
                 class="max-w-xs ml-12"
                 src="/img/redy-item-1.webp"
                 alt
-                data-sal="fade"
-                data-sal-delay="200"
-                data-sal-duration="1200"
-                data-sal-easing="ease-in"
               />
             </div>
           </div>
@@ -182,7 +158,7 @@
   </div>
 </template>
 <script>
-import sal from 'sal.js'
+import { TweenMax, Expo } from 'gsap'
 export default {
   layout: 'register',
   data: () => ({
@@ -196,15 +172,23 @@ export default {
     }
   }),
   mounted() {
-    sal({
-      threshold: 0.5,
-      once: true
-    })
+    TweenMax.from('.title', 2, {
+      delay: 0.5,
+      opacity: 0,
+      y: '20%',
+      z: 0,
+      ease: Expo.easeInOut
+    }),
+      TweenMax.from('.description', 2, {
+        delay: 0.7,
+        opacity: 0,
+        z: 0,
+        ease: Expo.easeInOut
+      })
   },
   methods: {
     async submitForm() {
       const isValid = this.$validator.validateAll()
-
       try {
       } catch (error) {}
     }

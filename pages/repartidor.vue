@@ -1,20 +1,16 @@
 <template>
   <div class="main">
-    <section class="pt-56 pb-12 md_pb-0 relative">
+    <section class="pt-56 pb-12 md:pb-0 relative">
       <div class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
       <div class="img-container object-cover w-1/2 ml-auto absolute h-full bottom-0 right-0">
-        <img src="/img/redy-back-dealer.webp" alt class="object-cover ml-auto" />
+        <img src="/img/redy-back-dealer.webp" alt class="object-cover h-full ml-auto" />
       </div>
       <div class="container mx-auto z-50 relative px-6">
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
             <div class="max-w-md">
               <h1
-                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight"
-                data-sal="slide-up"
-                data-sal-delay="200"
-                data-sal-duration="1000"
-                data-sal-easing="ease-out-bounce"
+                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title"
               >
                 Obtén puntos
                 <br />como repartidor
@@ -25,15 +21,11 @@
           </div>
           <div class="w-full md:w-1/2">
             <div
-              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-16"
-              data-sal="fade"
-              data-sal-delay="200"
-              data-sal-duration="1000"
-              data-sal-easing="ease-out-bounce"
+              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-16 description"
             >
-              <p class="font-medium text-xl text-center mb-8 mt-6 px-6">
-                ¡Estás a un paso de ser nuestro
-                nuevo aliado!
+              <p class="font-medium text-2xl text-black leading-tight text-center mb-8 mt-6 px-6 font-gordita">
+                ¡Afíliate y Reparte <br/>
+                cuando tu quieras!
               </p>
               <form @submit.prevent="submitForm" class>
                 <div class="flex mb-4">
@@ -149,20 +141,12 @@
                 class="max-w-xs mx-auto md:max-w-md w-full"
                 src="/img/redy-dealer-item-1.png"
                 alt
-                data-sal="fade"
-                data-sal-delay="100"
-                data-sal-duration="1000"
-                data-sal-easing="ease-out-bounce"
               />
             </div>
           </div>
           <div class="w-full md:w-1/2">
             <div
               class="flex items-center mb-10 md:mb-20"
-              data-sal="slide-up"
-              data-sal-delay="50"
-              data-sal-duration="1000"
-              data-sal-easing="ease-out-bounce"
             >
               <img src="/img/icons/redy-icon-1.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
@@ -172,10 +156,6 @@
             </div>
             <div
               class="flex items-center mb-10 md:mb-20 md:ml-20"
-              data-sal="slide-up"
-              data-sal-delay="60"
-              data-sal-duration="1000"
-              data-sal-easing="ease-out-bounce"
             >
               <img src="/img/icons/redy-icon-2.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
@@ -185,10 +165,6 @@
             </div>
             <div
               class="flex items-center md:mb-12 md:ml-8"
-              data-sal="slide-up"
-              data-sal-delay="70"
-              data-sal-duration="1000"
-              data-sal-easing="ease-out-bounce"
             >
               <img src="/img/icons/redy-icon-3.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
@@ -203,7 +179,7 @@
   </div>
 </template>
 <script>
-import sal from 'sal.js'
+import { TweenMax, Expo } from 'gsap'
 export default {
   layout: 'register',
   data: () => ({
@@ -217,10 +193,19 @@ export default {
     }
   }),
   mounted() {
-    sal({
-      threshold: 0.5,
-      once: true
-    })
+     TweenMax.from('.title', 2, {
+      delay: 0.5,
+      opacity: 0,
+      y: '20%',
+      z: 0,
+      ease: Expo.easeInOut
+    }),
+      TweenMax.from('.description', 2, {
+        delay: 0.7,
+        opacity: 0,
+        z: 0,
+        ease: Expo.easeInOut
+      })
   },
   methods: {
     async submitForm() {
@@ -251,7 +236,7 @@ export default {
   }
 }
 
-.custom-select{
+.custom-select {
   background-image: url('/img/icons/arrow-down.svg');
   background-repeat: no-repeat;
   background-position: 98%;

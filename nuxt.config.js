@@ -29,7 +29,8 @@ module.exports = {
   */
   css: [
     '~/assets/scss/main.scss',
-    '~/assets/style.scss'
+    '~/assets/style.scss',
+    '~/assets/gordita.scss'
   ],
 
   /*

@@ -171,7 +171,7 @@ export default {
       email: null
     }
   }),
-  mounted() {
+  beforeMount() {
     TweenMax.from('.title', 2, {
       delay: 0.5,
       opacity: 0,

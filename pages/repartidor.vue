@@ -3,7 +3,7 @@
     <section class="pt-56 pb-12 md:pb-0 relative">
       <div class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
       <div class="img-container object-cover w-1/2 ml-auto absolute h-full bottom-0 right-0">
-        <img src="/img/redy-back-dealer.webp" alt class="object-cover h-full ml-auto" />
+        <img src="/img/redy-back-dealer.webp" alt class="object-cover object-left h-full ml-auto" />
       </div>
       <div class="container mx-auto z-50 relative px-6">
         <div class="flex flex-col md:flex-row">
@@ -70,9 +70,10 @@
                       name="phone"
                       v-validate="'required'"
                       data-vv-as="nombre"
-                      class="w-full h-full py-3"
+                      class="w-full h-full py-3 tracking-wide"
                       type="text"
                       placeholder="Ingresa tu número telefonico"
+                      @keypress="isNumber"
                     />
                   </div>
                 </div>
@@ -219,17 +220,35 @@ export default {
 
       try {
       } catch (error) {}
+    },
+
+    isNumber(evt) {
+      evt = evt || window.event
+      const charCode = evt.which ? evt.which : evt.keyCode
+      if (
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57) &&
+        charCode !== 46
+      ) {
+        evt.preventDefault()
+      } else {
+        return true
+      }
+    },
+
+    isInteger(evt) {
+      evt = evt || window.event
+      const charCode = evt.which ? evt.which : evt.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault()
+      } else {
+        return true
+      }
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.cover-container {
-  background-image: url('/img/redy-back-dealer.webp');
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 .oval-container {
   width: 100%;
   left: -50%;

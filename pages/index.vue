@@ -38,13 +38,13 @@
         <div class="flex items-center mb-20 lg:mb-0">
           <nuxt-link
             to="/"
-            class="w-16 h-16 rounded-full flex items-center justify-center border-2 border-redy-gold mx-2 hover:bg-redy-gold"
+            class="w-16 h-16 rounded-full flex items-center justify-center border-4 border-redy-gold mx-2 hover:bg-redy-gold"
           >
             <i class="icon-apple text-black text-4xl"></i>
           </nuxt-link>
           <nuxt-link
             to="/"
-            class="w-16 h-16 rounded-full flex items-center justify-center border-2 border-redy-gold mx-2 hover:bg-redy-gold"
+            class="w-16 h-16 rounded-full flex items-center justify-center border-4 border-redy-gold mx-2 hover:bg-redy-gold"
           >
             <i class="icon-playstore text-black text-4xl"></i>
           </nuxt-link>
@@ -55,15 +55,15 @@
           class="text-lg text-black lg:mr-8 order-last lg:order-first"
         >© Copyright {{new Date().getFullYear()}} Redy</p>
         <div class="flex items-center mb-6 lg:mb-0">
-          <nuxt-link to="/" class="ml-6">
+          <a href="https://www.instagram.com/pideloredyapp/" target="_blank" class="ml-6">
             <i class="icon-instagram text-black hover:text-redy-gold text-3xl"></i>
-          </nuxt-link>
-          <nuxt-link to="/" class="ml-6">
+          </a>
+          <a href="https://www.facebook.com/PideloRedyApp/" target="_blank" class="ml-6">
             <i class="icon-facebook text-black hover:text-redy-gold text-3xl"></i>
-          </nuxt-link>
-          <nuxt-link to="/" class="ml-6">
+          </a>
+          <a href="https://twitter.com/PideloRedyApp" target="_blank" class="ml-6">
             <i class="icon-twitter text-black hover:text-redy-gold text-3xl"></i>
-          </nuxt-link>
+          </a>
         </div>
       </div>
     </div>

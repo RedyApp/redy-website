@@ -96,9 +96,10 @@
                       name="phone"
                       v-validate="'required'"
                       data-vv-as="nombre"
-                      class="w-full h-full py-3"
+                      class="w-full h-full py-3 tracking-wide"
                       type="text"
                       placeholder="Ingresa tu número telefonico"
+                      @keypress="isNumber"
                     />
                   </div>
                 </div>
@@ -186,6 +187,19 @@ export default {
       const isValid = this.$validator.validateAll()
       try {
       } catch (error) {}
+    },
+    isNumber(evt) {
+      evt = evt || window.event
+      const charCode = evt.which ? evt.which : evt.keyCode
+      if (
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57) &&
+        charCode !== 46
+      ) {
+        evt.preventDefault()
+      } else {
+        return true
+      }
     }
   }
 }

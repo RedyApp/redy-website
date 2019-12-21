@@ -8,11 +8,9 @@
             <div class="max-w-md">
               <h1 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title">
                 Genera
-
-
                 <br />ingresos extra
-                <br />
-                con <span class="font-semibold">Redy.</span>
+                <br />con
+                <span class="font-semibold">Redy.</span>
               </h1>
               <p
                 class="text-md md:text-xl font-medium description font-gordita"
@@ -22,8 +20,8 @@
           <div class="w-full md:w-1/2">
             <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-12 description">
               <p class="font-medium text-xl text-center mb-8 mt-6 px-6 font-gordita">
-                ¡Estás a un paso de ser nuestro<br/>
-                nuevo aliado!
+                ¡Estás a un paso de ser nuestro
+                <br />nuevo aliado!
               </p>
               <form @submit.prevent="submitForm" class>
                 <div class="px-2">
@@ -126,18 +124,10 @@
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2">
-            <img
-              src="/img/redy-app-1.png"
-              class="max-w-lg w-full md:-mt-64"
-              alt
-
-            />
+            <img src="/img/redy-app-1.png" class="max-w-lg w-full md:-mt-64" alt />
           </div>
           <div class="w-full md:w-1/2">
-            <p
-              class="text-3xl mb-8 leading-tight"
-
-            >
+            <p class="text-3xl mb-8 leading-tight">
               Comencemos una
               <br />nueva experiencia y
               <br />conoce más a tus
@@ -145,11 +135,7 @@
               <b>consumidores</b>.
             </p>
             <div class="text-right w-full">
-              <img
-                class="max-w-xs ml-12"
-                src="/img/redy-item-1.webp"
-                alt
-              />
+              <img class="max-w-xs ml-12" src="/img/redy-item-1.webp" alt />
             </div>
           </div>
         </div>
@@ -158,7 +144,7 @@
   </div>
 </template>
 <script>
-
+import { TweenMax, Expo, TimelineMax, Sine } from 'gsap'
 export default {
   layout: 'register',
   data: () => ({
@@ -171,7 +157,23 @@ export default {
       email: null
     }
   }),
-
+  mounted() {
+    if (process.client) {
+      TweenMax.from('.title', 2, {
+        delay: 0.5,
+        opacity: 0,
+        y: '20%',
+        z: 0,
+        ease: Expo.easeInOut
+      }),
+        TweenMax.from('.description', 2, {
+          delay: 0.7,
+          opacity: 0,
+          z: 0,
+          ease: Expo.easeInOut
+        })
+    }
+  },
 
   methods: {
     async submitForm() {

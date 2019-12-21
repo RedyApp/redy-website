@@ -6,7 +6,13 @@
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
             <div class="max-w-md">
-              <h1 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title">
+              <h1
+                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title opacity-0"
+                data-aos="fade"
+                data-aos-delay="100"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+              >
                 Genera
                 <br />ingresos extra
                 <br />con
@@ -14,6 +20,10 @@
               </h1>
               <p
                 class="text-md md:text-xl font-medium description font-gordita"
+                data-aos="fade"
+                data-aos-delay="400"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
               >Redy te permite ampliar las ventas de tu restaurante para que puedas llegar a clientes que viven en otras zonas de la ciudad.</p>
             </div>
           </div>
@@ -124,10 +134,24 @@
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2">
-            <img src="/img/redy-app-1.png" class="max-w-lg w-full md:-mt-64" alt />
+            <img
+              src="/img/redy-app-1.png"
+              class="max-w-lg w-full md:-mt-64"
+              alt
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+            />
           </div>
           <div class="w-full md:w-1/2">
-            <p class="text-3xl mb-8 leading-tight">
+            <p
+              class="text-3xl mb-8 leading-tight"
+              data-aos="fade"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+            >
               Comencemos una
               <br />nueva experiencia y
               <br />conoce más a tus
@@ -144,7 +168,6 @@
   </div>
 </template>
 <script>
-import { TweenMax, Expo, TimelineMax, Sine } from 'gsap'
 export default {
   layout: 'register',
   data: () => ({
@@ -157,23 +180,6 @@ export default {
       email: null
     }
   }),
-  mounted() {
-    if (process.client) {
-      TweenMax.from('.title', 2, {
-        delay: 0.5,
-        opacity: 0,
-        y: '20%',
-        z: 0,
-        ease: Expo.easeInOut
-      }),
-        TweenMax.from('.description', 2, {
-          delay: 0.7,
-          opacity: 0,
-          z: 0,
-          ease: Expo.easeInOut
-        })
-    }
-  },
 
   methods: {
     async submitForm() {

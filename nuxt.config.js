@@ -30,13 +30,15 @@ module.exports = {
   css: [
     '~/assets/scss/main.scss',
     '~/assets/style.scss',
-    '~/assets/gordita.scss'
+    '~/assets/gordita.scss',
+    'aos/dist/aos.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: "~/plugins/aos.js", ssr: false },
   ],
 
   /*

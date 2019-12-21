@@ -11,6 +11,10 @@
             <div class="max-w-md">
               <h1
                 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title"
+                data-aos="fade"
+                data-aos-delay="200"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
               >
                 Obtén puntos
                 <br />como repartidor
@@ -20,12 +24,12 @@
             </div>
           </div>
           <div class="w-full md:w-1/2">
-            <div
-              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-16 description"
-            >
-              <p class="font-medium text-2xl text-black leading-tight text-center mb-8 mt-6 px-6 font-gordita">
-                ¡Afíliate y Reparte <br/>
-                cuando tu quieras!
+            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-16 description">
+              <p
+                class="font-medium text-2xl text-black leading-tight text-center mb-8 mt-6 px-6 font-gordita"
+              >
+                ¡Afíliate y Reparte
+                <br />cuando tu quieras!
               </p>
               <form @submit.prevent="submitForm" class>
                 <div class="flex mb-4">
@@ -141,12 +145,20 @@
                 class="max-w-xs mx-auto md:max-w-md w-full"
                 src="/img/redy-dealer-item-1.png"
                 alt
+                data-aos="fade"
+                data-aos-delay="100"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
               />
             </div>
           </div>
           <div class="w-full md:w-1/2">
             <div
               class="flex items-center mb-10 md:mb-20"
+              data-aos="fade"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
             >
               <img src="/img/icons/redy-icon-1.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
@@ -156,6 +168,10 @@
             </div>
             <div
               class="flex items-center mb-10 md:mb-20 md:ml-20"
+              data-aos="fade"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
             >
               <img src="/img/icons/redy-icon-2.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
@@ -165,6 +181,10 @@
             </div>
             <div
               class="flex items-center md:mb-12 md:ml-8"
+              data-aos="fade"
+              data-aos-delay="150"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
             >
               <img src="/img/icons/redy-icon-3.svg" class="w-16 mr-8" alt />
               <p class="font-2xl text-xl">
@@ -192,21 +212,7 @@ export default {
       password: null
     }
   }),
-  mounted() {
-     TweenMax.from('.title', 2, {
-      delay: 0.5,
-      opacity: 0,
-      y: '20%',
-      z: 0,
-      ease: Expo.easeInOut
-    }),
-      TweenMax.from('.description', 2, {
-        delay: 0.7,
-        opacity: 0,
-        z: 0,
-        ease: Expo.easeInOut
-      })
-  },
+
   methods: {
     async submitForm() {
       const isValid = this.$validator.validateAll()

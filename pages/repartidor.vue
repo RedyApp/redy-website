@@ -5,7 +5,7 @@
       <div class="img-container object-cover w-full md:w-1/2 ml-auto absolute h-full bottom-0 right-0  hidden md:block">
         <img src="/img/redy-back-dealer.webp" alt class="object-cover object-left h-full ml-auto" />
       </div>
-      <div class="w-full container main-section mx-auto z-50 relative px-0 md:px-6">
+      <div class="w-full container main-section mx-auto md:z-50 relative px-0 md:px-6">
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6 bg-white md:bg-transparent px-6 md:px-0">
             <div class="max-w-md">

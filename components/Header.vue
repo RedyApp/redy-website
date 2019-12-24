@@ -37,7 +37,7 @@
       <span class="block w-full h-1 bg-black mb-2 rounded-lg"></span>
       <span class="block w-full h-1 bg-black rounded-lg"></span>
     </button>
-    <div class="min-menu w-full bg-white py-12 px-8 absolute left-0 top-0" :class="{'show' : show}">
+    <div class="min-menu w-full bg-white py-12 px-8 absolute left-0 top-0 z-index" :class="{'show' : show}">
       <div class="text-right mb-4">
         <button
           class="w-10 h-10 border-2 border-black rounded-full cursor-pointer flex items-center justify-center ml-auto"
@@ -83,6 +83,7 @@ export default {
   height: 400px;
   transform: translateY(-110%);
   transition: 1s all ease;
+  z-index: 1000;
   &.show {
     transform: translateY(0%);
   }

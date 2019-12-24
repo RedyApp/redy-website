@@ -1,13 +1,15 @@
 <template>
   <div>
-    <section class="pt-56 pb-32 cover-container relative">
-      <div class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
-      <div class="container mx-auto z-20 relative px-6">
+    <section class="pt-40 md:pt-56 md:pb-32 cover-container relative bg-white">
+      <div
+        class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container hidden md:block"
+      ></div>
+      <div class="commerce-section container mx-auto z-20 relative md:px-6">
         <div class="flex flex-col md:flex-row">
-          <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
+          <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6 bg-white px-8 md:px-0">
             <div class="max-w-md">
               <h1
-                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title opacity-0"
+                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title "
                 data-aos="fade"
                 data-aos-delay="100"
                 data-aos-duration="1000"
@@ -27,9 +29,13 @@
               >Redy te permite ampliar las ventas de tu restaurante para que puedas llegar a clientes que viven en otras zonas de la ciudad.</p>
             </div>
           </div>
-          <div class="w-full md:w-1/2">
-            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-12 description">
-              <p class="font-medium text-xl text-center mb-8 mt-6 px-6 font-gordita">
+          <div class="w-full md:w-1/2 form-container px-6 md:px-0 py-10">
+            <div
+              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md mx-1 md:mx-none md:-mt-24 description"
+            >
+              <p
+                class="font-medium text-lg md:text-xl text-center mb-8 mt-6 px-2 md:px-6 font-gordita leading-none"
+              >
                 ¡Estás a un paso de ser nuestro
                 <br />nuevo aliado!
               </p>
@@ -58,8 +64,8 @@
                     placeholder="Dirección y ciudad"
                   />
                 </div>
-                <div class="flex mb-4">
-                  <div class="w-1/2 px-2">
+                <div class="flex flex-wrap mb-4">
+                  <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                     <input
                       v-model="form.name"
                       name="name"
@@ -71,7 +77,7 @@
                       placeholder="Nombre"
                     />
                   </div>
-                  <div class="w-1/2 px-2">
+                  <div class="w-full md:w-1/2 px-2">
                     <input
                       v-model="form.last_name"
                       name="last_name"
@@ -134,7 +140,7 @@
     <section class="py-12 bg-redy-gold relative z-20">
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row">
-          <div class="w-full md:w-1/2">
+          <div class="w-full md:w-1/2 hidden md:block">
             <img
               src="/img/redy-app-1.png"
               class="max-w-lg w-full md:-mt-64"
@@ -147,7 +153,7 @@
           </div>
           <div class="w-full md:w-1/2">
             <p
-              class="text-3xl mb-8 leading-tight"
+              class="text-2xl md:text-3xl mb-8 leading-tight"
               data-aos="fade"
               data-aos-delay="100"
               data-aos-duration="1000"
@@ -156,11 +162,10 @@
               Comencemos una
               <br />nueva experiencia y
               <br />conoce más a tus
-              <br />
-              <b>consumidores</b>.
+              <br />consumidores.
             </p>
             <div class="text-right w-full">
-              <img class="max-w-xs ml-12" src="/img/redy-item-1.webp" alt />
+              <img class="w-64 mx-auto md:max-w-xs md:ml-12" src="/img/redy-item-1.webp" alt />
             </div>
           </div>
         </div>
@@ -210,6 +215,9 @@ export default {
   background-position: top right;
   background-size: cover;
   background-repeat: no-repeat;
+  @media screen and(max-width: 768px) {
+    background-image: none;
+  }
 }
 .oval-container {
   width: 100%;
@@ -219,6 +227,23 @@ export default {
     left: 0%;
     widows: 600px;
     height: 600px !important;
+    border-radius: 0;
+  }
+}
+.form-container {
+  background-image: url('/img/redy-back-commerce.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @media screen and(min-width: 768px) {
+    background-image: none;
+  }
+}
+.commerce-section {
+  &.container {
+    @media screen and(max-width: 768px) {
+      max-width: 100%;
+    }
   }
 }
 </style>

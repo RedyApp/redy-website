@@ -1,13 +1,13 @@
 <template>
   <div class="main">
-    <section class="pt-56 pb-12 md:pb-0 relative">
-      <div class="position absolute left-0 top-0 bg-white h-full rounded-full z-10 oval-container"></div>
-      <div class="img-container object-cover w-1/2 ml-auto absolute h-full bottom-0 right-0">
+    <section class="pt-32 md:pt-56 md:pb-12 md:pb-0 relative flex flex-col md:flex-row flex-wrap bg-white">
+      <div class="position w-full absolute left-0 top-0 bg-white h-full z-10 oval-container hidden md:block"></div>
+      <div class="img-container object-cover w-full md:w-1/2 ml-auto absolute h-full bottom-0 right-0  hidden md:block">
         <img src="/img/redy-back-dealer.webp" alt class="object-cover object-left h-full ml-auto" />
       </div>
-      <div class="container mx-auto z-50 relative px-6">
+      <div class="w-full container main-section mx-auto z-50 relative px-0 md:px-6">
         <div class="flex flex-col md:flex-row">
-          <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6">
+          <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6 bg-white md:bg-transparent px-6 md:px-0">
             <div class="max-w-md">
               <h1
                 class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title"
@@ -23,8 +23,8 @@
               </h1>
             </div>
           </div>
-          <div class="w-full md:w-1/2">
-            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md md:-mt-16 description">
+          <div class="w-full md:w-1/2 py-12 md:py-0 form-container px-6 md:px-0">
+            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md mx-auto md:mx-none md:-mt-16 description">
               <p
                 class="font-medium text-2xl text-black leading-tight text-center mb-8 mt-6 px-6 font-gordita"
               >
@@ -32,8 +32,8 @@
                 <br />cuando tu quieras!
               </p>
               <form @submit.prevent="submitForm" class>
-                <div class="flex mb-4">
-                  <div class="w-1/2 px-2">
+                <div class="flex flex-wrap mb-4">
+                  <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                     <input
                       v-model="form.name"
                       name="name"
@@ -45,7 +45,7 @@
                       placeholder="Nombre"
                     />
                   </div>
-                  <div class="w-1/2 px-2">
+                  <div class="w-full md:w-1/2 px-2">
                     <input
                       v-model="form.last_name"
                       name="last_name"
@@ -133,14 +133,14 @@
           </div>
         </div>
       </div>
-      <div class="w-full hidden md:block -mb-12 absolute bottom-0 right-0 z-20">
+      <div class="w-full hidden md:block -mb-12 absolute bottom-0 right-0 z-20 ">
         <img src="/img/redy-back-dealer-1.png" alt class="w-full" />
       </div>
     </section>
-    <section class="py-12 bg-redy-gold relative z-20 overflow-hidden">
+    <section class="py-16 md:py-12 bg-redy-gold relative z-20 overflow-hidden">
       <div class="container mx-auto px-6">
         <div class="flex flex-wrap flex-col md:flex-row items-center">
-          <div class="w-full md:w-1/2">
+          <div class="w-full md:w-1/2 hidden md:block">
             <div class="text-right w-fullm md:-mb-40">
               <img
                 class="max-w-xs mx-auto md:max-w-md w-full"
@@ -153,7 +153,7 @@
               />
             </div>
           </div>
-          <div class="w-full md:w-1/2">
+          <div class="w-full md:w-1/2 px-4">
             <div
               class="flex items-center mb-10 md:mb-20"
               data-aos="fade"
@@ -162,7 +162,7 @@
               data-aos-easing="ease-in-out"
             >
               <img src="/img/icons/redy-icon-1.svg" class="w-16 mr-8" alt />
-              <p class="font-2xl text-xl">
+              <p class="text-lg md:text-xl">
                 Gana propina extra
                 <br />tus entregas.
               </p>
@@ -175,7 +175,7 @@
               data-aos-easing="ease-in-out"
             >
               <img src="/img/icons/redy-icon-2.svg" class="w-16 mr-8" alt />
-              <p class="font-2xl text-xl">
+              <p class="text-lg md:text-xl">
                 Gana propina extra
                 <br />tus entregas.
               </p>
@@ -188,7 +188,7 @@
               data-aos-easing="ease-in-out"
             >
               <img src="/img/icons/redy-icon-3.svg" class="w-16 mr-8" alt />
-              <p class="font-2xl text-xl">
+              <p class="text-lg md:text-xl">
                 Gana propina extra
                 <br />tus entregas.
               </p>
@@ -253,18 +253,38 @@ export default {
   width: 100%;
   left: -50%;
   transform: scale(1.5);
+  border-radius: 9999px;
   @media screen and(max-width: 768px) {
     left: 0%;
-    width: 400px;
+    width: 100%;
     margin-bottom: auto;
     height: 400px !important;
+    transform: scale(1);
+    top: 0;
+    border-radius: 0;
   }
 }
+.form-container{
+   background-image: url('/img/redy-back-dealer.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  @media screen and(min-width: 768px){
+    background-image: none;
+  }
 
+}
 .custom-select {
   background-image: url('/img/icons/arrow-down.svg');
   background-repeat: no-repeat;
   background-position: 98%;
   background-size: 20px;
+}
+.main-section{
+  &.container{
+    @media screen and(max-width: 768px){
+      max-width: 100%;
+    }
+  }
 }
 </style>

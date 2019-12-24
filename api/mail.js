@@ -7,14 +7,13 @@ app.use(express.json())
 app.post('/', (req, res) => {
   var data = {
     email: `${req.body.email} ${req.body.last_name}`,
-    subject: "Neuva solicitud de repartidor",
-
-
+    subject: "Nueva solicitud de repartidor",
     message: req.body.message
   };
+  console.log(process.env.SENDGRID_API_KEY)
   var client = nodemailer.createTransport(sgTransport({
     auth: {
-      api_key: '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'
+      api_key: process.env.SENDGRID_API_KEY
     }
   }));
 

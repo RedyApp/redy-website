@@ -8,21 +8,19 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "@sendgrid/mail": "^6.4.0",
     "aos": "^2.3.4",
     "cross-env": "^5.2.0",
     "express": "^4.17.1",
     "gsap": "^3.0.4",
     "nodemailer": "^6.4.2",
-    "nodemailer-sendgrid": "^1.0.3",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "nuxt": "^2.4.0",
-    "nuxt-validate": "^1.0.1",
-    "sal.js": "^0.5.0"
+    "nuxt-validate": "^1.0.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.2.0",

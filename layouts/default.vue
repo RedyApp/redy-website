@@ -4,13 +4,5 @@
   </div>
 </template>
 <script>
-import sal from 'sal.js'
-export default {
-  mounted() {
-    sal()
-  }
-}
+export default {}
 </script>
-<style lang="scss">
-@import '../node_modules/sal.js/dist/sal.css';
-</style>

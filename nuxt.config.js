@@ -3,7 +3,9 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
+  env: {
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY
+  },
   /*
   ** Headers of the page
   */
@@ -72,6 +74,9 @@ module.exports = {
 
     }
   },
+  serverMiddleware: [
+    { path: '/api/mail', handler: '~/api/mail' },
+  ],
   tailwindcss: {
     configPath: '~/tailwind.config.js',
     cssPath: '~/assets/scss/tailwind.scss'

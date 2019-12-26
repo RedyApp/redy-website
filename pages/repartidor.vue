@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="w-full md:w-1/2 py-12 md:py-0 form-container px-6 md:px-0">
-            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md mx-auto md:mx-none md:-mt-16 description">
+            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md mx-auto md:mx-none md:-mt-16 description" id="page-form">
               <p
                 class="font-medium text-2xl text-black leading-tight text-center mb-8 mt-6 px-6 font-gordita"
               >
@@ -197,11 +197,17 @@
         </div>
       </div>
     </section>
+  <banner />
   </div>
 </template>
 <script>
 import { TweenMax, Expo } from 'gsap'
+import Banner from '~/components/Banner.vue'
+
 export default {
+  components:{
+    Banner
+  },
   layout: 'register',
   data: () => ({
     form: {

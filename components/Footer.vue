@@ -1,11 +1,9 @@
 <template>
   <footer class="bg-redy-gray py-12">
     <div class="container mx-auto">
-      <div
-        class="flex flex-col lg:flex-row items-center mt-4 md:mt-0 md:hidden mb-8"
-      >
+      <div class="flex flex-col lg:flex-row items-center mt-4 md:mt-0 md:hidden mb-8">
         <p class="font-medium text-lg mb-4 lg:mb-0 font-gordita">Muy pronto en</p>
-        <div class="flex  items-center lg:mb-0">
+        <div class="flex items-center lg:mb-0">
           <nuxt-link
             to="/"
             class="w-10 md:w-12 h-10 md:h-12 rounded-full flex items-center justify-center mx-2 bg-redy-gold mb-2 md:mb-0"
@@ -51,3 +49,11 @@
     </div>
   </footer>
 </template>
+<script>
+import Banner from '~/components/Banner'
+export default {
+  components: {
+    Banner
+  }
+}
+</script>

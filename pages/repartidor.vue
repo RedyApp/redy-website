@@ -1,8 +1,14 @@
 <template>
   <div class="main">
-    <section class="pt-32 md:pt-56 md:pb-12 md:pb-0 relative flex flex-col md:flex-row flex-wrap bg-white">
-      <div class="position w-full absolute left-0 top-0 bg-white h-full z-10 oval-container hidden md:block"></div>
-      <div class="img-container object-cover w-full md:w-1/2 ml-auto absolute h-full bottom-0 right-0  hidden md:block">
+    <section
+      class="pt-32 md:pt-56 md:pb-12 md:pb-0 relative flex flex-col md:flex-row flex-wrap bg-white"
+    >
+      <div
+        class="position w-full absolute left-0 top-0 bg-white h-full z-10 oval-container hidden md:block"
+      ></div>
+      <div
+        class="img-container object-cover w-full md:w-1/2 ml-auto absolute h-full bottom-0 right-0 hidden md:block"
+      >
         <img src="/img/redy-back-dealer.webp" alt class="object-cover object-left h-full ml-auto" />
       </div>
       <div class="w-full container main-section mx-auto md:z-50 relative px-0 md:px-6">
@@ -24,7 +30,10 @@
             </div>
           </div>
           <div class="w-full md:w-1/2 py-12 md:py-0 form-container px-6 md:px-0">
-            <div class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md mx-auto md:mx-none md:-mt-16 description" id="page-form">
+            <div
+              class="bg-white shadow-lg rounded-xl py-8 px-3 max-w-md mx-auto md:mx-none md:-mt-16 description"
+              id="page-form"
+            >
               <p
                 class="font-medium text-2xl text-black leading-tight text-center mb-8 mt-6 px-6 font-gordita"
               >
@@ -124,16 +133,19 @@
                     <nuxt-link to class="font-semibold underline">términos y condiciones</nuxt-link>
                   </p>
                   <button
-                    class="p-3 bg-redy-gold font-semibold text-xl rounded-lg w-full hover:shadow-lg"
+                    class="p-3 bg-redy-gold font-semibold text-xl rounded-lg w-full hover:shadow-lg flex items-center justify-center"
                     type="submit"
-                  >Registrarme</button>
+                  >
+                    <span v-if="!loading" class="block h-full">Registrarme</span>
+                    <loader v-else />
+                  </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="w-full hidden md:block -mb-12 absolute bottom-0 right-0 z-20 ">
+      <div class="w-full hidden md:block -mb-12 absolute bottom-0 right-0 z-20">
         <img src="/img/redy-back-dealer-1.png" alt class="w-full" />
       </div>
     </section>
@@ -197,16 +209,26 @@
         </div>
       </div>
     </section>
-  <banner />
+    <banner />
+    <div
+      class="register-banner bg-redy-gold py-8 shadow-lg flex flex-col md:flex-row justify-center items-center fixed w-full bottom-0 left-0 z-50"
+      :class="{'show': registerSuccess}"
+      ref="banner"
+    >
+      <p
+        class="text-lg md:text-xl font-medium text-black mr-4 mb-2 md:mb-0"
+      >Te has registrado a Redy satisfactoriamente</p>
+    </div>
   </div>
 </template>
 <script>
 import { TweenMax, Expo } from 'gsap'
 import Banner from '~/components/Banner.vue'
-
+import Loader from '~/components/Loader.vue'
 export default {
-  components:{
-    Banner
+  components: {
+    Banner,
+    Loader
   },
   layout: 'register',
   data: () => ({
@@ -217,15 +239,37 @@ export default {
       phone: null,
       email: null,
       password: null
-    }
+    },
+    registerSuccess: false,
+    loading: false
   }),
 
   methods: {
     async submitForm() {
-      const isValid = this.$validator.validateAll()
+      this.loading = true
+      const isValid = await this.$validator.validateAll()
 
       try {
-      } catch (error) {}
+        if (isValid) {
+          this.loading = false
+          this.registerSuccess = true
+          this.form = {
+            name: null,
+            last_name: null,
+            address: '',
+            phone: null,
+            email: null,
+            password: null
+          }
+          this.$validator.reset()
+          setTimeout(() => {
+            this.registerSuccess = false
+          }, 4000)
+        }
+        this.loading = false
+      } catch (error) {
+        this.loading = false
+      }
     },
 
     isNumber(evt) {
@@ -270,15 +314,14 @@ export default {
     border-radius: 0;
   }
 }
-.form-container{
-   background-image: url('/img/redy-back-dealer.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  @media screen and(min-width: 768px){
+.form-container {
+  background-image: url('/img/redy-back-dealer.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @media screen and(min-width: 768px) {
     background-image: none;
   }
-
 }
 .custom-select {
   background-image: url('/img/icons/arrow-down.svg');
@@ -286,11 +329,18 @@ export default {
   background-position: 98%;
   background-size: 20px;
 }
-.main-section{
-  &.container{
-    @media screen and(max-width: 768px){
+.main-section {
+  &.container {
+    @media screen and(max-width: 768px) {
       max-width: 100%;
     }
+  }
+}
+.register-banner {
+  transform: translateY(110%);
+  transition: 0.5s all ease;
+  &.show {
+    transform: translateY(0%);
   }
 }
 </style>

@@ -9,7 +9,7 @@
           <div class="w-full md:w-1/2 mb-8 md:mb-0 pr-6 bg-white px-8 md:px-0">
             <div class="max-w-md">
               <h1
-                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title "
+                class="text-3xl md:text-4xl lg:text-5xl mb-8 leading-tight title"
                 data-aos="fade"
                 data-aos-delay="100"
                 data-aos-duration="1000"
@@ -127,9 +127,12 @@
                     <nuxt-link to class="font-semibold underline">términos y condiciones</nuxt-link>
                   </p>
                   <button
-                    class="p-3 bg-redy-gold font-semibold text-xl rounded-lg w-full hover:shadow-lg"
+                    class="p-3 bg-redy-gold font-semibold text-xl rounded-lg w-full hover:shadow-lg flex items-center justify-center"
                     type="submit"
-                  >Enviar</button>
+                  >
+                    <span v-if="!loading" class="block h-full">Enviar</span>
+                    <loader v-else />
+                  </button>
                 </div>
               </form>
             </div>
@@ -171,11 +174,24 @@
         </div>
       </div>
     </section>
+    <div
+      class="register-banner bg-redy-gold py-8 shadow-lg flex flex-col md:flex-row justify-center items-center fixed w-full bottom-0 left-0 z-50"
+      :class="{'show': registerSuccess}"
+      ref="banner"
+    >
+      <p
+        class="text-lg md:text-xl font-medium text-black mr-4 mb-2 md:mb-0"
+      >Te has registrado a Redy satisfactoriamente</p>
+    </div>
   </div>
 </template>
 <script>
+import Loader from '~/components/Loader.vue'
 export default {
   layout: 'register',
+  components: {
+    Loader
+  },
   data: () => ({
     form: {
       restaurant_name: null,
@@ -184,14 +200,37 @@ export default {
       last_name: null,
       phone: null,
       email: null
-    }
+    },
+    registerSuccess: false,
+    loading: false
   }),
 
   methods: {
     async submitForm() {
-      const isValid = this.$validator.validateAll()
+      this.loading = true
+      const isValid = await this.$validator.validateAll()
+      console.log(isValid)
       try {
-      } catch (error) {}
+        if (isValid) {
+          this.loading = false
+          this.registerSuccess = true
+          this.form = {
+            restaurant_name: null,
+            address: null,
+            name: null,
+            last_name: null,
+            phone: null,
+            email: null
+          }
+          this.$validator.reset()
+          setTimeout(() => {
+            this.registerSuccess = false
+          }, 4000)
+        }
+        this.loading = false
+      } catch (error) {
+        this.loading = false
+      }
     },
     isNumber(evt) {
       evt = evt || window.event
@@ -244,6 +283,13 @@ export default {
     @media screen and(max-width: 768px) {
       max-width: 100%;
     }
+  }
+}
+.register-banner {
+  transform: translateY(110%);
+  transition: 0.5s all ease;
+  &.show {
+    transform: translateY(0%);
   }
 }
 </style>

@@ -6,7 +6,7 @@
         <div class="flex items-center lg:mb-0">
           <nuxt-link
             to="/"
-            class="w-10 md:w-12 h-10 md:h-12 rounded-full flex items-center justify-center mx-2 bg-redy-gold mb-2 md:mb-0"
+            class="w-10 md:w-12 h-10 md:h-12 rounded-full flex items-center justify-center mx-2 bg-redy-gold "
           >
             <i class="icon-apple text-black text-2xl"></i>
           </nuxt-link>
@@ -49,11 +49,3 @@
     </div>
   </footer>
 </template>
-<script>
-import Banner from '~/components/Banner'
-export default {
-  components: {
-    Banner
-  }
-}
-</script>

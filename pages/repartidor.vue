@@ -9,7 +9,7 @@
       <div
         class="img-container object-cover w-full md:w-1/2 ml-auto absolute h-full bottom-0 right-0 hidden md:block"
       >
-        <img src="/img/redy-back-dealer.webp" alt class="object-cover object-left h-full ml-auto" />
+        <img src="/img/redy-back-dealer.png" alt class="object-cover object-left h-full ml-auto" />
       </div>
       <div class="w-full container main-section mx-auto md:z-50 relative px-0 md:px-6">
         <div class="flex flex-col md:flex-row">
@@ -88,12 +88,12 @@
                 </div>
                 <div class="px-2 mb-4">
                   <select
-                    v-model="form.address"
-                    name="address"
+                    v-model="form.city"
+                    name="city"
                     v-validate="'required'"
                     data-vv-as="dirección"
                     class="custom-select py-3 px-4 border-2 border-gray-300 w-full rounded-lg appearance-none bg-white"
-                    :class="{ 'border-red-400' :errors.first('address') }"
+                    :class="{ 'border-red-400' :errors.first('city') }"
                     type="text"
                     placeholder="Dirección y ciudad"
                   >
@@ -235,7 +235,7 @@ export default {
     form: {
       name: null,
       last_name: null,
-      address: '',
+      city: '',
       phone: null,
       email: null,
       password: null
@@ -253,10 +253,11 @@ export default {
         if (isValid) {
           this.loading = false
           this.registerSuccess = true
+          const response = await this.$axios.$post('/api/mail/dealer', this.form);
           this.form = {
             name: null,
             last_name: null,
-            address: '',
+            city: '',
             phone: null,
             email: null,
             password: null
@@ -268,6 +269,7 @@ export default {
         }
         this.loading = false
       } catch (error) {
+        console.log(error)
         this.loading = false
       }
     },
@@ -315,7 +317,7 @@ export default {
   }
 }
 .form-container {
-  background-image: url('/img/redy-back-dealer.webp');
+  background-image: url('/img/redy-back-dealer.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

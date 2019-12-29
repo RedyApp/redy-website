@@ -4,7 +4,7 @@
       class="h-full flex flex-col md:flex-row items-center justify-center relative md:pt-0 mt-20"
     >
       <img
-        src="/img/loading-phone.webp"
+        src="/img/loading-phone.png"
         alt
         class="w-32 sm:w-48 lg:w-auto md:max-w-xs md:mb-16 -mb-32 relative"
         data-aos="zoom-in"
@@ -23,7 +23,7 @@
         <video src="/img/loader.mp4" loop autoplay class="video-loading w-full"></video>
       </div>
       <img
-        src="/img/loading-phone-2.webp"
+        src="/img/loading-phone-2.png"
         alt
         class="hidden md:block w-48 lg:w-auto md:max-w-xs -mb-32"
         data-aos="zoom-in"

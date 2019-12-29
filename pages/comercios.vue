@@ -54,7 +54,7 @@
                 </div>
                 <div class="px-2 mb-4">
                   <input
-                    v-model="form.address"
+                    v-model="form.restaurant_address"
                     name="address"
                     v-validate="'required'"
                     data-vv-as="dirección"
@@ -168,7 +168,7 @@
               <br />consumidores.
             </p>
             <div class="text-right w-full">
-              <img class="w-64 mx-auto md:max-w-xs md:ml-12" src="/img/redy-item-1.webp" alt />
+              <img class="w-64 mx-auto md:max-w-xs md:ml-12" src="/img/redy-item-1.png" alt />
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default {
   data: () => ({
     form: {
       restaurant_name: null,
-      address: null,
+      restaurant_address: null,
       name: null,
       last_name: null,
       phone: null,
@@ -212,11 +212,15 @@ export default {
       console.log(isValid)
       try {
         if (isValid) {
-          this.loading = false
+          const response = await this.$axios.$post(
+            '/api/mail/commerce',
+            this.form
+          )
           this.registerSuccess = true
+          this.loading = false
           this.form = {
             restaurant_name: null,
-            address: null,
+            restaurant_address: null,
             name: null,
             last_name: null,
             phone: null,
@@ -229,6 +233,7 @@ export default {
         }
         this.loading = false
       } catch (error) {
+        console.log(error)
         this.loading = false
       }
     },
@@ -250,7 +255,7 @@ export default {
 </script>
 <style lang="scss">
 .cover-container {
-  background-image: url('/img/redy-back-commerce.webp');
+  background-image: url('/img/redy-back-commerce.png');
   background-position: top right;
   background-size: cover;
   background-repeat: no-repeat;
@@ -270,7 +275,7 @@ export default {
   }
 }
 .form-container {
-  background-image: url('/img/redy-back-commerce.webp');
+  background-image: url('/img/redy-back-commerce.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

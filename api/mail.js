@@ -4,39 +4,63 @@ const sgTransport = require('nodemailer-sendgrid-transport');
 const app = express()
 app.use(express.json())
 
-app.post('/', (req, res) => {
-  var data = {
-    email: `${req.body.email} ${req.body.last_name}`,
-    subject: "Nueva solicitud de repartidor",
-    message: req.body.message
-  };
-  console.log(process.env.SENDGRID_API_KEY)
-  var client = nodemailer.createTransport(sgTransport({
-    auth: {
-      api_key: process.env.SENDGRID_API_KEY
-    }
-  }));
+const client = nodemailer.createTransport(sgTransport({
+  auth: {
+    // api_key: process.env.SENDGRID_API_KEY
+    api_key: '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'
+  }
+}));
 
-  var mailOptions = {
+app.post('/commerce', (req, res) => {
+
+  var mailCommerceOptions = {
     to: 'rigobertogomez.gf@gmail.com',
-    from: 'fake@demo.com',
-    subject: data.subject,
-    text: data.message,
-    html: '<b>Hello</b>'
+    from: req.body.email,
+    subject: "Nueva solicitud de Comercio",
+    html: `<b>Comercio: </b>${req.body.restaurant_name}<br/>
+           <b>Dirección: </b>${req.body.restaurant_address}<br/>
+           <b>Nombre: </b>${req.body.name}<br/>
+           <b>Apellido: </b>${req.body.last_name}<br/>
+           <b>Teléfono: </b>${req.body.phone}<br/>
+           <b>Correo: </b>${req.body.email}<br/>`
   };
 
-  client.sendMail(mailOptions, function (err, info) {
-    //re-render contact page with message
-    console.log(info)
+  client.sendMail(mailCommerceOptions, function (err, info) {
     let message = null;
     if (err) {
       console.log(err)
       message = "An error has occured " + err;
-      return res.status(422).json({ 'error': 'Ugh.. That looks unprocessable!' })
+      return res.status(422).json({ 'status': '422', 'message': message })
     } else {
-      console.log("sent")
-      message = "Email has been sent!";
-      return res.status(200).json({ 'message': 'OH YEAH' })
+      return res.status(200).json({ 'status': '200', 'message': 'Request sent successfully' })
+    }
+  });
+})
+
+app.post('/dealer', (req, res) => {
+
+  var mailDealerOptions = {
+    to: 'rigobertogomez.gf@gmail.com',
+    // from: req.body.email,
+    subject: "Nueva solicitud de Repartidor",
+    html: `
+          <b>Nombre: </b>${req.body.name}<br/>
+          <b>Apellido: </b>${req.body.last_name}<br/>
+          <b>Teléfono: </b>${req.body.phone}<br/>
+          <b>Ciudad: </b>${req.body.city}<br/>
+          <b>Correo: </b>${req.body.email}<br/>
+          <b>Contraseña: </b>${req.body.password}<br/>
+          `
+  };
+
+  client.sendMail(mailDealerOptions, function (err, info) {
+    let message = null;
+    if (err) {
+      console.log(err)
+      message = "An error has occured " + err;
+      return res.status(422).json({ 'status': '422', 'message': message })
+    } else {
+      return res.status(200).json({ 'status': '200', 'message': 'Request sent successfully' })
     }
   });
 })

@@ -16,7 +16,7 @@ app.post('/commerce', (req, res) => {
   var mailCommerceOptions = {
     to: 'rigobertogomez.gf@gmail.com',
     from: req.body.email,
-    subject: 'Nueva solicitud de Comercio ',
+    subject: 'Nueva solicitud de Comercio 🛍',
     html: `<b>Comercio: </b>${req.body.restaurant_name}<br/>
            <b>Dirección: </b>${req.body.restaurant_address}<br/>
            <b>Nombre: </b>${req.body.name}<br/>

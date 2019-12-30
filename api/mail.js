@@ -42,7 +42,7 @@ app.post('/commerce', (req, res) => {
 app.post('/dealer', (req, res) => {
   var mailDealerOptions = {
     to: 'rigobertogomez.gf@gmail.com',
-    // from: req.body.email,
+    from: req.body.email,
     subject: 'Nueva solicitud de Repartidor 🛵',
     html: `
           <b>Nombre: </b>${req.body.name}<br/>

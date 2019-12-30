@@ -38,6 +38,9 @@ export default {
     toForm() {
       var element = document.querySelector('#page-form')
       element.scrollIntoView({ behavior: 'smooth', block: 'end' })
+      this.showAgain = false
+      this.show = false
+      window.removeEventListener('scroll', this.handleScroll, this.show)
     },
     closeBanner() {
       this.showAgain = false

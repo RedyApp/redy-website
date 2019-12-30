@@ -132,6 +132,7 @@
                     Ver
                     <nuxt-link to class="font-semibold underline">términos y condiciones</nuxt-link>
                   </p>
+                  <p v-if="error" class="text-red-500 font-semibold text-center mb-2">{{error}}</p>
                   <button
                     class="p-3 bg-redy-gold font-semibold text-xl rounded-lg w-full hover:shadow-lg flex items-center justify-center"
                     type="submit"
@@ -149,7 +150,7 @@
         <img src="/img/redy-back-dealer-1.png" alt class="w-full" />
       </div>
     </section>
-    <section class="py-16 md:py-12 bg-redy-gold relative z-20 overflow-hidden">
+    <section class="py-16 md:py-10 bg-redy-gold relative z-20 overflow-hidden">
       <div class="container mx-auto px-6">
         <div class="flex flex-wrap flex-col md:flex-row items-center">
           <div class="w-full md:w-1/2 hidden md:block">
@@ -241,6 +242,7 @@ export default {
       password: null
     },
     registerSuccess: false,
+    error: null,
     loading: false
   }),
 
@@ -252,8 +254,11 @@ export default {
       try {
         if (isValid) {
           this.loading = false
+          const response = await this.$axios.$post(
+            '/api/mail/dealer',
+            this.form
+          )
           this.registerSuccess = true
-          const response = await this.$axios.$post('/api/mail/dealer', this.form);
           this.form = {
             name: null,
             last_name: null,
@@ -268,9 +273,12 @@ export default {
           }, 4000)
         }
         this.loading = false
-      } catch (error) {
-        console.log(error)
+      } catch (error) {        
+        this.error = 'Ha ocurrido un error vuelve a intentarlo'
         this.loading = false
+        setTimeout(() => {
+          this.error = null
+        }, 6000)
       }
     },
 

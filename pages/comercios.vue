@@ -126,6 +126,7 @@
                     Ver
                     <nuxt-link to class="font-semibold underline">términos y condiciones</nuxt-link>
                   </p>
+                  <p v-if="error" class="text-red-500 font-semibold text-center mb-2">{{error}}</p>
                   <button
                     class="p-3 bg-redy-gold font-semibold text-xl rounded-lg w-full hover:shadow-lg flex items-center justify-center"
                     type="submit"
@@ -233,8 +234,11 @@ export default {
         }
         this.loading = false
       } catch (error) {
-        console.log(error)
+        this.error = 'Ha ocurrido un error vuelve a intentarlo'
         this.loading = false
+        setTimeout(() => {
+          this.error = null
+        }, 6000)
       }
     },
     isNumber(evt) {

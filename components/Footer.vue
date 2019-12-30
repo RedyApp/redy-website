@@ -37,10 +37,10 @@
             <a href="https://www.instagram.com/pideloredyapp/" target="_blank" class="mx-3 md:ml-6">
               <i class="icon-instagram text-black hover:text-redy-gold text-2xl"></i>
             </a>
-            <a href="https://www.facebook.com/PideloRedyApp/" target="_blank" class="mx-3 md:ml-6">
+            <a href="https://twitter.com/PideloRedyApp" target="_blank" class="mx-3 md:ml-6">
               <i class="icon-twitter text-black hover:text-redy-gold text-2xl"></i>
             </a>
-            <a href="https://twitter.com/PideloRedyApp" target="_blank" class="mx-3 md:ml-6">
+            <a href="https://www.facebook.com/PideloRedyApp/" target="_blank" class="mx-3 md:ml-6">
               <i class="icon-facebook text-black hover:text-redy-gold text-2xl"></i>
             </a>
           </div>

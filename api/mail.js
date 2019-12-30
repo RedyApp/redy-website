@@ -14,7 +14,7 @@ const client = nodemailer.createTransport(
 
 app.post('/commerce', (req, res) => {
   var mailCommerceOptions = {
-    to: 'rigobertogomez.gf@gmail.com',
+    to: 'info@pideloredy.com',
     from: req.body.email,
     subject: 'Nueva solicitud de Comercio 🛍',
     html: `<b>Comercio: </b>${req.body.restaurant_name}<br/>
@@ -41,7 +41,7 @@ app.post('/commerce', (req, res) => {
 
 app.post('/dealer', (req, res) => {
   var mailDealerOptions = {
-    to: 'rigobertogomez.gf@gmail.com',
+    to: 'info@pideloredy.com',
     from: req.body.email,
     subject: 'Nueva solicitud de Repartidor 🛵',
     html: `

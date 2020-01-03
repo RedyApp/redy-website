@@ -245,7 +245,14 @@ export default {
     error: null,
     loading: false
   }),
-
+  head () {
+    return {
+      title: 'Redy App - Repartidor',
+      meta: [        
+        { hid: 'og:image', property: 'og:image', content: '/img/og-dealer.png' }
+      ]
+    }
+  },
   methods: {
     async submitForm() {
       this.loading = true

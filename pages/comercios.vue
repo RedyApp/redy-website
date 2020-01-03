@@ -190,6 +190,14 @@
 import Loader from '~/components/Loader.vue'
 export default {
   layout: 'register',
+  head () {
+    return {
+      title: 'Redy App - Comercios',
+      meta: [        
+        { hid: 'og:image', property: 'og:image', content: '/img/og-commerce.png' }
+      ]
+    }
+  },
   components: {
     Loader
   },

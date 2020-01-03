@@ -20,7 +20,7 @@ module.exports = {
         property: 'og:title',
         content: 'Redy App'
       },
-      { hid: 'og:image', property: 'og:image', content: '/img/og-redy.png' }
+      
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
   },

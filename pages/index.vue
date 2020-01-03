@@ -71,7 +71,15 @@
 </template>
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  head () {
+    return {
+      title: 'Redy App',
+      meta: [        
+        { hid: 'og:image', property: 'og:image', content: '/img/og-image.png' }
+      ]
+    }
+  },
 }
 </script>
 <style lang="scss">

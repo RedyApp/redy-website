@@ -203,7 +203,8 @@ export default {
       email: null
     },
     registerSuccess: false,
-    loading: false
+    loading: false,
+    error: null,
   }),
 
   methods: {

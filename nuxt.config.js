@@ -43,7 +43,10 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: '~/plugins/aos.js', ssr: false }],
+  plugins: [
+    { src: '~/plugins/aos.js', ssr: false },
+    '~/plugins/fb-pixel.js'
+  ],
 
   /*
   ** Nuxt.js modules

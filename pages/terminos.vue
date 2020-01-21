@@ -1,11 +1,12 @@
 <template>
   <section>
-      <div class="bg-white w-full relative z-20">
+      <div class="hidden md:block bg-white w-full relative z-20">
         <div to class="logo container mx-auto px-4 py-2">
             <img src="/img/logo.svg" class="w-20 h-20 md:w-20 md:h-20 max-w-xs" alt />        
+        </div>
       </div>
-      </div>
-      <div class="bg-redy-gray py-20 relative overflow-hidden">
+      <Header class="md:hidden bg-white " /> 
+      <div class="bg-redy-gray pt-40 pb-12 md:py-20 relative overflow-hidden">
         <div class="absolute left-0 top-0 md:-mt-32">
           <img class="md:w-full background" src="/img/background-terms.svg" alt="">
           </div>
@@ -342,10 +343,12 @@
   </section>
 </template>
 <script>
+import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 export default {
   name: 'Terms',
   components: {
+    Header,
     Footer
   },
   methods: {
@@ -358,10 +361,10 @@ export default {
 </script>
 
 <style lang="scss">
-.background{
-    @media screen and(max-width: 992px){
-        width: 1000px;
-        max-width: 10000px;
-    }
+.background {
+  @media screen and(max-width: 992px) {
+    width: 1000px;
+    max-width: 10000px;
+  }
 }
 </style>

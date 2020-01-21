@@ -1,9 +1,9 @@
 <template>
   <div class="flex items-center justify-between py-6 px-6 md:px-12 absolute w-full z-50">
     <div class="flex flex-col md:flex-row md:items-center">
-      <div to class="md:mr-32 mb-4 md:mb-0 logo">
+      <div to class="md:mr-32 md:mb-4 md:mb-0 logo">
         <img src="/img/logo.svg" class="w-20 h-20 md:w-24 md:h-24 max-w-xs" alt />
-        <p v-if="$route.name !== 'repartidor'" class="-mt-5 font-regular text-md">Business</p>
+        <p v-if="$route.name !== 'repartidor' && $route.name !== 'terminos' " class="-mt-5 font-regular text-md">Business</p>
       </div>
       <nuxt-link to class="font-semibold md:mr-10 flex items-center hidden md:block">
         <i class="icon-arrow text-redy-gold mr-2"></i>Soporte Redy
@@ -51,7 +51,7 @@
           <nuxt-link to class="font-semibold mb-8 flex items-center text-xl">
             <i class="icon-arrow text-redy-gold mr-2"></i>Soporte Redy
           </nuxt-link>
-          <nuxt-link to class="font-semibold flex items-center text-xl mb-8">
+          <nuxt-link to="/terminos" class="font-semibold flex items-center text-xl mb-8">
             <i class="icon-arrow text-redy-gold mr-2"></i>Términos
           </nuxt-link>
         </div>
